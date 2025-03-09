@@ -16,6 +16,14 @@ gsettings set org.gnome.mutter experimental-features "['variable-refresh-rate']"
 #### Enable HDR (Last updated 2025-03-09)
 [Arch Wiki - High Dynamic Range - GNOME](https://wiki.archlinux.org/title/HDR_monitor_support#GNOME)
 
+**Requirements**
+
+Ensure you have GNOME 48 beta or higher. Prior to 48 stable you may use Official_repositories#gnome-unstable.
+
+Install `vk-hdr-layer-kwin6-git`.
+
+---
+
 Start GNOME with the `--debug-control` flag and enable `ColorManagementProtocol`:
 
 ```shell
