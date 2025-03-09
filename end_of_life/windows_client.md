@@ -24,7 +24,7 @@ See [Windows 10 - Release Information](https://learn.microsoft.com/windows/relea
 
 | Build | Released | Mainstream Support | Security Support | Build Number | Extended Security Support |
 | ----- | -------- | ------------------ | ---------------- | ------------ | ------------------------- |
-| Windows 11 - 24H2 (EnterpriseIoT LTSC)	| 2024-10-01 | 2029-10-09 | 2034-10-10 | 10.0.26100 | N/A |
+| Windows 11 - 24H2 (Enterprise IoT LTSC)	| 2024-10-01 | 2029-10-09 | 2034-10-10 | 10.0.26100 | N/A |
 | Windows 11 - 24H2 (Enterprise LTSC) 		| 2024-10-01 | 2029-10-09 | 2029-10-09 | 10.0.26100 | N/A |
 | Windows 11 - 24H2 (Enterprise) 					| 2024-10-01 | 2027-10-12 | 2027-10-12 | 10.0.26100 | N/A |
 | Windows 11 - 24H2 											| 2024-10-01 | 2026-10-13 | 2026-10-13 | 10.0.26100 | N/A |
