@@ -37,3 +37,13 @@ You can make this the default behavior by editing `/usr/lib/systemd/user/org.gno
 ExecStart=/usr/bin/gnome-shell --debug-control
 ExecStartPost=/usr/bin/dbus-send --session --print-reply --dest=org.gnome.Mutter.DebugControl /org/gnome/Mutter/DebugControl org.freedesktop.DBus.Properties.Set string:org.gnome.Mutter.DebugControl string:ColorManagementProtocol variant:boolean:true
 ```
+
+#### Use Seahorse (Passwords & Keys) as SSH ask pass (Last updated 2025-03-16)
+
+```shell
+# Temporary
+export SSH_ASKPASS=/usr/lib/seahorse/seahorse-ssh-askpass
+
+# Permanent
+ln -s /usr/lib/seahorse/seahorse-ssh-askpass /usr/lib/ssh/ssh-askpass
+```
