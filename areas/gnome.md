@@ -47,3 +47,32 @@ export SSH_ASKPASS=/usr/lib/seahorse/seahorse-ssh-askpass
 # Permanent
 ln -s /usr/lib/seahorse/seahorse-ssh-askpass /usr/lib/ssh/ssh-askpass
 ```
+
+#### TODO: Modify gdm with machinectl
+
+Source: https://www.reddit.com/r/Fedora/comments/vqwype/machinectl_a_simpler_way_to_modify_gdm
+
+ First, connect to the gdm user with bash as the shell. This will prompt you for your password.
+machinectl shell gdm@ /bin/bash
+
+Now you are in gdm's "userspace" and you can run normal gsettings commands to modify the interface. Below are some commands I have personally used to make gdm work how I want.
+
+Change to 12hr time format
+gsettings set org.gnome.desktop.interface clock-format '12h'
+
+Enable tap-to-click
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+
+Enable night light
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+
+Enable numlock
+gsettings set org.gnome.desktop.peripherals.keyboard numlock-state true
+gsettings set org.gnome.desktop.peripherals.keyboard remember-numlock-state true
+
+Disable Accessibility Icon
+gsettings set org.gnome.desktop.a11y always-show-universal-access-status false
+
+I hope this information is useful to the community!
+
+EDIT: It may not actually be installed by default in Fedora. It is provided by the package systemd-container 
