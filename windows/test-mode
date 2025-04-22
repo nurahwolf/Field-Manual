@@ -1,0 +1,7 @@
+# Enable Test Mode
+
+Useful for testing drivers that are not signed.
+
+```powershell
+bcdedit /set TESTSIGNING ON
+```
