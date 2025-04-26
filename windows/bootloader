@@ -1,0 +1,16 @@
+# Windows bootloader
+
+#### Rebuild Bootloader (EFI)
+
+I really hate that Microsoft adds a useless 16MB partition after the EFI partition, even if it is 'required'.
+However, it can be deleted with no impact... Aside from borking the boot loader.
+Therefore, if you delete it, reorder partitons or anything that screws with the bootloader, you can boot a windows install image and run these commands.
+
+```powershell
+diskpart # Check to make sure that EFI and Windows are mapped
+- list vol
+- sel vol X
+- assign letter A:
+
+bcdboot C:\Windows /l en-gb /s A: /f UEFI
+```
