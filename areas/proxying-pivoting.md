@@ -64,6 +64,33 @@ Quite often, technical people often use the terms `pivot` and `proxy` interchang
 - Tools like `chisel` or `meterpreter` combine both concepts, enabling pivoting and acting as proxies.  
 - Proxies often rely on pivoting to reach restricted networks, but pivoting alone doesn’t require proxying.
 
+# Pivoting
+
+## Pivoting - Software
+
+- [ligolo](https://github.com/sysdream/ligolo)
+
+## ligolo-ng
+
+A go-to, much like with `chisel`. Ligolo is a simple and lightweight tool for establishing `SOCKS5` or `TCP` tunnels from a reverse connection that are encrypted (TLS certificate with elliptical curve), thus can be used for more sensitive communications.
+
+Start server:
+
+	sudo ./proxy -selfcert -laddr 0.0.0.0:<port>
+
+List session once established and see networks
+
+        session
+        ip -br a
+
+Add a route into the network via ligolo TUN adapter
+
+        # ip route add 192.0.2.0/24 dev ligolo
+
+start tunnel on ligolo
+
+        tunnel_start
+
 # Proxy
 
 Proxying on linux generally uses environment variables so that software knows where to send things. The main ones are these:
@@ -136,6 +163,10 @@ The easiest fix is to tell `SUDO` to keep the environment variables with the fol
 Defaults env_keep += "*_proxy *_PROXY"
 ```
 
+## Proxy Software - Generic
+
+- [sshuttle - Transparent SSH Proxy Server](https://github.com/sshuttle/sshuttle)
+
 ## Proxy Software - HTTP(S) Specific
 
 - [burpsuite](https://portswigger.net/burp) - Proprietary and graphical, though a legend in the MITM proxy space.
@@ -167,6 +198,8 @@ socks5 127.0.0.1 1337
 Then you run a tool with `proxychains program` such as `proxychains curl`.
 
 **NOTE:** It's useful to set the `all_proxy` environment variable to ensure that all tools (e.g. `apt`, `pacman`, `curl`, etc) use the proxy by default. An example is: `export all_proxy="socks5://localhost:1337"`.
+
+**NOTE:** Only `nmap` TCP scans (full connection) will work, and it will be SLOW. It's usually better to pivot in these cases, if possible. You can suffer with something like `proxychains nmap -v -Pn -sT 192.0.2.10/32`
 
 ## Proxy Settings on Gnome
 Chromium and Firefox automatically use the proxy settings defined in Gnome. You can modify this in the GUI settings app `gnome-control-center`, or via the CLI with `gsettings`. Enjoy the pain and suffering of typing out the same commands multiple times.
