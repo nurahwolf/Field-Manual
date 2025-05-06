@@ -69,6 +69,9 @@ Quite often, technical people often use the terms `pivot` and `proxy` interchang
 ## Pivoting - Software
 
 - [ligolo](https://github.com/sysdream/ligolo)
+- [plink.exe] - Windows Only!
+- [socat]
+- [chisel]
 
 ## ligolo-ng
 
