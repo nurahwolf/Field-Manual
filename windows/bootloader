@@ -1,5 +1,13 @@
 # Windows bootloader
 
+### Create Boot Entry (EFI + BIOS)
+
+You can create a manual boot entry with bcdedit. For example, to add `systemd-boot`...
+
+```shell
+bcdedit /set "{bootmgr}" path \EFI\systemd\systemd-bootx64.efi
+```
+
 #### Rebuild Bootloader (EFI)
 
 I really hate that Microsoft adds a useless 16MB partition after the EFI partition, even if it is 'required'.
