@@ -26,3 +26,14 @@ pacman-key --populate
 pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key F3B607488DB35A47
 ```
+### AUR Down / Unaccessible
+
+In case the AUR is down, or cannot be accessed (network restrictions), there is a mirror hosted on github.
+
+```bash
+git clone --branch <package_name> --single-branch https://github.com/archlinux/aur.git <package_name>
+```
+
+### Arch Wiki
+
+`arch-wiki-docs` and `arch-wiki-lite` can be used to access the wiki offline
