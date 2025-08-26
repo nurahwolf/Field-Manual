@@ -37,3 +37,39 @@ git clone --branch <package_name> --single-branch https://github.com/archlinux/a
 ### Arch Wiki
 
 `arch-wiki-docs` and `arch-wiki-lite` can be used to access the wiki offline
+
+### Signature Verification
+
+```bash
+pacman-key -v archlinux-version-x86_64.iso.sig
+```
+
+Verify the BLAKE2b checksums as follows:
+
+```bash
+b2sum -c b2sums.txt
+```
+
+To verify the PGP signature using Sequoia, first download the release signing key from WKD:
+
+```bash
+sq network wkd search pierre@archlinux.org --output release-key.pgp
+```
+
+With this signing key, verify the signature:
+
+```bash
+sq verify --signer-file release-key.pgp --signature-file archlinux-2025.08.01-x86_64.iso.sig archlinux-2025.08.01-x86_64.iso
+```
+
+Alternatively, using GnuPG, download the signing key from WKD:
+
+```bash
+gpg --auto-key-locate clear,wkd -v --locate-external-key pierre@archlinux.org
+```
+
+Verify the signature:
+
+```bash
+gpg --verify archlinux-2025.08.01-x86_64.iso.sig archlinux-2025.08.01-x86_64.iso
+```
